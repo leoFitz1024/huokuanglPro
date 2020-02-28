@@ -1,0 +1,55 @@
+<div class="demoTable">
+	<fieldset class="layui-elem-field">
+		<legend>退货记录</legend>
+		<div class="layui-field-box">
+			<form class="layui-form" id="returnsForm" action="" style="display: inline-block;">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">退货日期</label>
+					<div class="layui-input-inline ifInput">
+						<input type="text" class="layui-input" id="returnsAccurateTime" placeholder="年-月-日">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">日期范围</label>
+					<div class="layui-input-inline ifInput">
+						<input type="text" class="layui-input" id="returnsRangeTime" placeholder="年-月-日~年-月-日">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">厂家：</label>
+					<div class="layui-input-inline ifInput">
+						<select name="returnsfactoryid" id="returnsfactoryid">
+							<option value="" selected="">请选择厂家</option>
+							<option ng-repeat = "factory in factorys" value="{{factory.id}}" >{{factory.factoryname}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">货号：</label>
+					<div class="layui-input-inline shortInput ifInput">
+						<input type="text" name="returnsCode" id="returnsCode" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">颜色：</label>
+					<div class="layui-input-inline shortInput ifInput">
+						<input type="text" name="returnsColor" id="returnsColor" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+			</div>
+			</form>
+			<button class="layui-btn reloadBtn" data-type="search">筛选</button>
+			<button class="layui-btn layui-btn-normal reloadBtn" data-type="return">清空</button>
+			<button class="layui-btn layui-btn-normal" ng-click="exportToExcel(data)">导出Excel表格</button>
+		</div>
+	</fieldset>
+</div>
+
+<table class="layui-hide" id="LAY_table_returns" lay-filter="returns"></table>
+<script type="text/html" id="toolBar">
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">&nbsp;删除&nbsp;</a>
+</script>
+<div class="content-bottom">
+	<button class="layui-btn" id="addReturnsBtn">添加记录</button>
+</div>

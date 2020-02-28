@@ -1,0 +1,26 @@
+<div class="demoTable">
+	<fieldset class="layui-elem-field">
+		<legend>厂家列表</legend>
+		<div class="layui-field-box">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">厂家名：</label>
+					<div class="layui-input-inline ifInput">
+						<input type="text" name="factoryname" id="factoryname" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<button class="layui-btn reloadBtn" data-type="search">查找</button>
+				<button class="layui-btn layui-btn-normal reloadBtn" data-type="return">返回</button>
+			</div>
+		</div>
+	</fieldset>
+</div>
+
+<table class="layui-hide" id="LAY_table_factory" lay-filter="factory"></table>
+<script type="text/html" id="toolBar">
+	<a class="layui-btn layui-btn-xs" lay-event="edit">&nbsp;编辑&nbsp;</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">&nbsp;删除&nbsp;</a>
+</script>
+<div class="content-bottom">
+	<button class="layui-btn" id="addFactoryBtn">添加厂家</button>
+</div>

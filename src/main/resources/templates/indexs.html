@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>童梦晴天货款管理后台</title>
+		<link rel="stylesheet" href="util/layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" href="css/login.css" />
+	</head>
+
+	<body class="layui-layout-body" ng-app = "tmqtApp">
+
+		<div ui-view = "indexs">
+
+		</div>
+		<!--<script src="util/require.min.js"></script>-->
+		<script src="util/layui/layui.js"></script>
+		<script src="util/angularjs/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="util/angularjs/angular-ui-router.js"></script>
+		<script src="util/angularjs/angular-cookie.js"></script>
+		<script src="util/alasql.min.js"></script>
+		<script src="util/xlsx.core.min.js"></script>
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="util/my-dialog.js" type="text/javascript" charset="utf-8"></script>-->
+		<!--<script src="util/my-form.js" type="text/javascript" charset="utf-8"></script>-->
+		<!--<script src="util/my-view.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="js/controller/indexController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/factoryListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/rangeSizeListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/paymentCenterController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/paymentListController.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/controller/inbillListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/addInbillController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/updateInbillController.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/controller/outbillListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/addOutbillController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/updateOutbillController.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/controller/purchaseListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/returnsListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/userListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/loginController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/newProductListController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller/productPlanListController.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<script type="text/html" id="dateTpl">
+
+			{{#
+				var fn = function(date){
+				if(date != null){
+					date = new Date(date);
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					return year+'年'+month+'月'+day+'日';
+				}else{
+					return "";
+					}
+				};
+			}}
+
+			{{ fn(d.time) }}
+
+		</script>
+		<script type="text/html" id="addtimeTpl">
+			{{#
+				var fn = function(date){
+					if(date != null){
+					date = new Date(date);
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					var hour = date.getHours();
+					var minute =  date.getMinutes();
+					return year + '年' + month + '月' + day + '日 '+ hour +':' + minute;
+					}else{
+					return "";
+					}
+				};
+			}}
+			{{ fn(d.addtime) }}
+		</script>
+		<script type="text/html" id="paymentMonth">
+			{{#
+				var fn = function(date){
+					if(date != null){
+						date = new Date(date);
+						var year = date.getFullYear();
+						var month = date.getMonth() + 1;
+						var day = date.getDate();
+						var hour = date.getHours();
+						var minute =  date.getMinutes();
+						return year + '年' + month + '月';
+					}else{
+						return "";
+					}
+				};
+			}}
+			{{ fn(d.month) }}
+		</script>
+		<script type="text/html" id="paymentPaytime">
+			{{#
+				var fn = function(date){
+					if(date != null){
+					date = new Date(date);
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					var hour = date.getHours();
+					var minute =  date.getMinutes();
+					return year+'年'+month+'月'+day+'日';
+					}else{
+					return "";
+					}
+				};
+			}}
+			{{ fn(d.paytime) }}
+		</script>
+		<script type="text/html" id="paymentType">
+			{{#
+			var fn = function(type){
+					switch(type)
+					{
+						case 1:
+							return "全额付款";
+						break;
+						case 2:
+							return "分次付款";
+						break;
+						case 3:
+							return "优惠付款";
+						break;
+						default:
+							return "";
+					}
+				};
+			}}
+			{{ fn(d.type) }}
+		</script>
+		<script type="text/html" id="atmonthTpl">
+			{{#
+			var fn = function(date){
+				if(date != null){
+					date = new Date(date);
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					var hour = date.getHours();
+					var minute =  date.getMinutes();
+					return year + '年' + month + '月';
+				}else{
+					return "";
+				}
+			};
+			}}
+			{{ fn(d.atmonth) }}
+		</script>
+		<script type="text/html" id="dcTimeTpl">
+			{{#
+				var fn = function(date,preState){
+					if(date != null){
+						date = new Date(date);
+						var year = date.getFullYear();
+						var month = date.getMonth() + 1;
+						var day = date.getDate();
+						var hour = date.getHours();
+						var minute =  date.getMinutes();
+						if(preState == 1){
+							return month+'月'+day+'日'+'<br />预上架';
+						}else{
+							return month+'月'+day+'日';
+						}
+					}else{
+						return "";
+					}
+				};
+			}}
+			{{ fn(d.dctime,d.dcpre) }}
+		</script>
+		<script type="text/html" id="alTimeTpl">
+			{{#
+			var fn = function(date,preState){
+			if(date != null){
+			date = new Date(date);
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			var hour = date.getHours();
+			var minute =  date.getMinutes();
+			if(preState == 1){
+			return month+'月'+day+'日'+'<br />预上架';
+			}else{
+			return month+'月'+day+'日';
+			}
+			}else{
+			return "";
+			}
+			};
+			}}
+			{{ fn(d.altime,d.alpre) }}
+		</script>
+		<script type="text/html" id="kdTimeTpl">
+			{{#
+			var fn = function(date,preState){
+			if(date != null){
+			date = new Date(date);
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			var hour = date.getHours();
+			var minute =  date.getMinutes();
+			if(preState == 1){
+			return month+'月'+day+'日'+'<br />预上架';
+			}else{
+			return month+'月'+day+'日';
+			}
+			}else{
+			return "";
+			}
+			};
+			}}
+			{{ fn(d.kdtime,d.kdpre) }}
+		</script>
+		<script type="text/html" id="tmTimeTpl">
+			{{#
+			var fn = function(date,preState){
+			if(date != null){
+			date = new Date(date);
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			var hour = date.getHours();
+			var minute =  date.getMinutes();
+			if(preState == 1){
+			return month+'月'+day+'日'+'<br />预上架';
+			}else{
+			return month+'月'+day+'日';
+			}
+			}else{
+			return "";
+			}
+			};
+			}}
+			{{ fn(d.tmtime,d.tmpre) }}
+		</script>
+		<script type="text/html" id="prephototimeTpl">
+			{{#
+			var fn = function(date){
+			if(date != null){
+			date = new Date(date);
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			var hour = date.getHours();
+			var minute =  date.getMinutes();
+			return month+'月'+day+'日';
+			}else{
+			return "";
+			}
+			};
+			}}
+			{{ fn(d.prephototime) }}
+		</script>
+
+		<script type="text/html" id="videostateTpl">
+			{{#  if(d.videostate == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="detailimagestateTpl">
+			{{#  if(d.detailimagestate == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="buyershowstateTpl">
+			{{#  if(d.buyershowstate == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="testclickstateTpl">
+			{{#  if(d.testclickstate == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="stockstateTpl">
+			{{#  if(d.stockstate == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="titlestateTpl">
+			{{#  if(d.titlestate == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="takelengthTpl">
+			{{#  if(d.takelength == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="verifystateTpl">
+			{{#  if(d.verifystate == 1){ }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" checked disabled>
+			{{#  } else { }}
+			<input type="checkbox" name="switch" lay-skin="switch" lay-text="YES|NO" disabled>
+			{{#  } }}
+		</script>
+		<script type="text/html" id="newProductStartTimeTpl">
+			{{#
+			var fn = function(date){
+				if(date != null){
+					date = new Date(date);
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					var hour = date.getHours();
+					var minute =  date.getMinutes();
+					return year+'年'+month+'月'+day+'日';
+				}else{
+					return "";
+				}
+			};
+			}}
+			{{ fn(d.starttime) }}
+		</script>
+		<script type="text/html" id="costTpl">
+			{{#
+			var fn = function(costStr){
+			var costArr = costStr.split("#");
+			var costReStr = costArr.join("<br />");
+			return costReStr;
+			};
+			}}
+			{{ fn(d.cost) }}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,82 @@
+<fieldset class="layui-elem-field" style="min-height: 800px">
+    <legend>修改退货订单</legend>
+    <div class="layui-container" style="pupdateing: 20px 0 ;margin:40px auto;min-height: 710px;text-align: center;box-shadow:5px 5px 10px #707070;">
+        <div class="layui-field-box">
+            <form class="layui-form" id="outbillUpdateForm" action="" style="display: inline-block;text-align: -webkit-center;">
+                <div class="layui-form-item" style="width: 760px;text-align: center;">
+                    <div class="layui-inline">
+                        <label class="layui-form-label ifLabel">进货日期：</label>
+                        <div class="layui-input-inline miniifInput">
+                            <input type="text" class="layui-input" id="updateOutbillTime" placeholder="年-月-日">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label ifLabel">结算月份：</label>
+                        <div class="layui-input-inline miniifInput">
+                            <input type="text" class="layui-input" id="updateOutbillAtmonth">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label ifLabel">厂家：</label>
+                        <div class="layui-input-inline miniifInput">
+                            <select name="factoryid" id="updateOutbillfactoryid" value="{{outbillData.factoryid}}">
+                                <option value="" selected="">请选择厂家</option>
+                                <option ng-repeat="factory in factorys" value="{{factory.id}}" ng-selected="outbillData.factoryid==factory.id">{{factory.factoryname}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text" style="width: 760px;text-align: center;">
+                    <label class="layui-form-label">备&#12288&#12288注：</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输备注" id="updateOutbillRemarks" class="layui-textarea">{{outbillData.remarks}}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item"><label class="layui-form-label">单据条目：</label>
+                    <div class="layui-form-item" ng-repeat="returns in returnsList"
+                         style="float: left;margin: 5px;pupdateing:10px 5px 5px 5px;border-bottom: 1px solid #e6e6e6">
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;pupdateing-left: 5px;">{{$index+1}}、货号：</label>
+                            <div class="layui-input-inline" style="width: 120px"><input type="text" class="layui-input"
+                                                                                        value="{{returns.code}}"
+                                                                                        id="updateReturnsCode{{$index}}"
+                                                                                        placeholder="货号"></div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;pupdateing-left: 5px;">码段：</label>
+                            <div class="layui-input-inline" style="width: 150px">
+                                <select name="updateReturnsSize" id="updateReturnsSize{{$index}}" value="{{returns.rangesize}}">
+                                    <option value="" selected="">请选择码段</option>
+                                    <option ng-repeat="size in sizes" value="{{size.rangesize}}" ng-selected="returns.rangesize==size.rangesize">{{size.rangesize}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;pupdateing-left: 5px;">颜色：</label>
+                            <div class="layui-input-inline" style="width: 80px"><input type="text" class="layui-input"
+                                                                                       value="{{returns.color}}"
+                                                                                       id="updateReturnsColor{{$index}}"
+                                                                                       placeholder="顏色"></div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;pupdateing-left: 5px;">价格：</label>
+                            <div class="layui-input-inline" style="width: 80px"><input type="text" class="layui-input"
+                                                                                       value="{{returns.price}}"
+                                                                                       id="updateReturnsPrice{{$index}}"
+                                                                                       placeholder="价格"></div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;pupdateing-left: 5px;">数量：</label>
+                            <div class="layui-input-inline" style="width: 80px"><input type="text" class="layui-input"
+                                                                                       value="{{returns.number}}"
+                                                                                       id="updateReturnsNumber{{$index}}"
+                                                                                       placeholder="数量"></div>
+                        </div>
+                    </div>
+                    <input id="addOutbillItemBtn" type="button"
+                           style="margin:17px 5px 10px 5px;float: left; width:35px; height:35px; border:0; background:url('../img/add.png') no-repeat;background-size:100%;"/>
+                    <input id="delOutbillItemBtn" type="button"
+                           style="margin:17px 5px 10px 5px;float: left; width:35px; height:35px; border:0; background:url('../img/del.png') no-repeat;background-size:100%;"/>
+                </div>
+            </form>
+        </div>
+        <a class="layui-btn layui-btn-normal layui-btn-lg" href="#/index/outbilllist" id="returnOutbillListBtn" style="top: 20px;">返回列表</a>
+        <button class="layui-btn layui-btn-lg" id="updateOutbillBtn" style="top: 20px;">提交修改</button>
+    </div>
+</fieldset>

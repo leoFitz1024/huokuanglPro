@@ -1,0 +1,65 @@
+<div class="demoTable" id="thisispaycent">
+	<fieldset class="layui-elem-field">
+		<legend>欠款查询</legend>
+		<div class="layui-field-box">
+			<form class="layui-form" id="paymentCenterForm" action="" style="display: inline-block">
+				<div class="layui-form-item">
+					<div class="layui-inline paycen-ifInput">
+						<label class="layui-form-label ifLabel">具体月份：</label>
+						<div class="layui-input-inline ifInput">
+							<input type="text" class="layui-input" id="paycentAccurateMonth" placeholder="年-月">
+						</div>
+					</div>
+					<div class="layui-inline paycen-ifInput">
+						<label class="layui-form-label ifLabel">月份范围：</label>
+						<div class="layui-input-inline ifInput">
+							<input type="text" class="layui-input" id="paycentRangeMonth" placeholder="年-月~年-月">
+						</div>
+					</div>
+					<div class="layui-inline paycen-ifInput">
+						<label class="layui-form-label ifLabel">厂家：</label>
+						<div class="layui-input-inline ifInput">
+							<select name="factoryid" id="paycentfactoryid">
+								<option value="" selected="">请选择厂家</option>
+								<option ng-repeat = "factory in factorys" value="{{factory.id}}" >{{factory.factoryname}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</form>
+			<button class="layui-btn paycen-ifInput reloadBtn" id="countNeedPayBtn" data-type="search">查询</button>
+			<button class="layui-btn layui-btn-normal reloadBtn" data-type="return">清空</button>
+			<button class="layui-btn layui-btn-normal" ng-click="exportToExcel(data)">导出Excel表格</button>
+		</div>
+	</fieldset>
+</div>
+
+<table class="layui-hide" id="LAY_table_debt" lay-filter="debt"></table>
+
+<fieldset class="layui-elem-field" style="padding-bottom: 15px;padding-right: 15px">
+	<legend>汇总：</legend>
+	<div class="layui-inline paycen-ifInput" style="display: inline-block;float: right">
+		<label class="layui-form-label ifLabel">总欠款：</label>
+		<div class="layui-input-inline ifInput">
+			<input type="text" name="" value="{{allDebt}}" readonly="true" autocomplete="on" class="layui-input">
+		</div>
+	</div>
+	<div class="layui-inline paycen-ifInput" style="display: inline-block;float: right">
+		<label class="layui-form-label ifLabel">已付金额：</label>
+		<div class="layui-input-inline ifInput">
+			<input type="text" name="" value="{{allAmountpaid}}" readonly="true" autocomplete="on" class="layui-input">
+		</div>
+	</div>
+	<div class="layui-inline paycen-ifInput" style="display: inline-block;float: right">
+		<label class="layui-form-label ifLabel">优惠金额：</label>
+		<div class="layui-input-inline ifInput">
+			<input type="text" name="" value="{{allDiscountMoney}}" readonly="true" autocomplete="on" class="layui-input">
+		</div>
+	</div>
+	<div class="layui-inline paycen-ifInput" style="display: inline-block ;float: right">
+		<label class="layui-form-label ifLabel">总金额：</label>
+		<div class="layui-input-inline ifInput">
+			<input type="text" name="" value="{{allMoney}}" readonly="true" autocomplete="on" class="layui-input">
+		</div>
+	</div>
+</fieldset>

@@ -1,0 +1,95 @@
+.layui-form-item .ifInput{
+	margin-right: 0;
+	width: 170px;
+}
+
+.layui-form-item .shortInput{
+	width: 100px;
+}
+
+.paycen-content{
+	
+	margin: 55px auto;
+	float: none;
+	text-align: center;
+	width: 40%;
+}
+
+.layui-form-item .paycen-input{
+	/*width: 250px;*/
+}
+
+.layui-form-item .paycen-ifInput{
+	margin-right: 50px;
+	margin-left: 30px;
+}
+
+/*.laytable-cell-1-image,*/
+/*.laytable-cell-2-image,*/
+/*.laytable-cell-3-image,*/
+/*.laytable-cell-4-image,*/
+/*.laytable-cell-5-image,*/
+/*.laytable-cell-6-image,*/
+/*.laytable-cell-7-image,*/
+/*.laytable-cell-8-image,*/
+/*.laytable-cell-9-image,*/
+/*.laytable-cell-10-image{  !*最后的pic为字段的field*!*/
+	/*height: 100%;*/
+	/*max-width: 100%;*/
+/*}*/
+
+div[class$="-image"]{  /*最后的pic为字段的field*/
+	height: 100%;
+	max-width: 100%;
+}
+
+.layui-form-item .productPlanInput{
+	width: 125px;
+}
+
+.layui-form-item .productPlanLabel{
+	width: 88px;
+	text-align: center;
+}
+
+.productPlanItem{
+	display: inline-block;
+}
+
+.user-logo {
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+
+.user-logo>span {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	font-size: 20px;
+	line-height: 33px;
+	border-radius: 50%;
+	text-align: center;
+	background: #1E9FFF;
+	color: #fff;
+	font-weight: 600;
+}
+
+.left-inline{
+	float: left;
+}
+
+.layui-form-item .short{
+	width: 75px;
+}
+
+.layui-form-item .miniifInput{
+	margin-right: 0;
+	width: 130px;
+}
+
+.layui-form-item .outbillIfInput{
+	margin-right: 0;
+	width: 80px;
+}

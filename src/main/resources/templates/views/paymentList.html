@@ -1,0 +1,49 @@
+<div class="demoTable">
+	<fieldset class="layui-elem-field">
+		<legend>付款记录</legend>
+		<div class="layui-field-box">
+			<form class="layui-form" id="paymentForm" action="" style="display: inline-block;">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">结算月份</label>
+					<div class="layui-input-inline ifInput">
+						<input type="text" class="layui-input" id="paymentAccurateMonth" placeholder="年-月">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">月份范围</label>
+					<div class="layui-input-inline ifInput">
+						<input type="text" class="layui-input" id="paymentRangeMonth" placeholder="年-月~年-月">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">付款日期</label>
+					<div class="layui-input-inline ifInput">
+						<input type="text" class="layui-input" id="paymentRangePaytime" placeholder="年-月-日~年-月-日">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ifLabel">厂家：</label>
+					<div class="layui-input-inline ifInput">
+						<select name="factoryid" id="paymentfactoryid">
+							<option value="" selected="">请选择厂家</option>
+							<option ng-repeat = "factory in factorys" value="{{factory.id}}" >{{factory.factoryname}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			</form>
+			<button class="layui-btn reloadBtn" data-type="search">筛选</button>
+			<button class="layui-btn layui-btn-normal reloadBtn" data-type="return">清空</button>
+			<button class="layui-btn layui-btn-normal" ng-click="exportToExcel(data)">导出Excel表格</button>
+		</div>
+	</fieldset>
+</div>
+
+<table class="layui-hide" id="LAY_table_payment" lay-filter="payment"></table>
+<script type="text/html" id="toolBar">
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">&nbsp;删除&nbsp;</a>
+</script>
+<div class="content-bottom">
+	<button class="layui-btn" id="addPaymentBtn">添加付款</button>
+</div>

@@ -1,0 +1,98 @@
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">童梦晴天·货款管理系统</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <!--<img src="http://t.cn/RCzsdCq" class="layui-nav-img">-->
+                    <div id="user-logo" class="user-logo">
+                        <span>{{logoStr}}</span>
+                    </div>
+                    {{username}}
+                </a>
+                <!--<dl class="layui-nav-child">-->
+                    <!--<dd>-->
+                        <!--<a href="">基本资料</a>-->
+                    <!--</dd>-->
+                    <!--<dd>-->
+                        <!--<a href="">安全设置</a>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            </li>
+            <li class="layui-nav-item">
+                <a id="exitBtn" href="">退出</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">货款管理</a>
+                    <dl class="layui-nav-child">
+                        <dd ui-sref = "index.inbillList">
+                            <a href="javascript:;">进货订单</a>
+                        </dd>
+                        <dd ui-sref = "index.outbillList">
+                            <a href="javascript:;">退货订单</a>
+                        </dd>
+                        <dd ui-sref = "index.paymentList">
+                            <a href="javascript:;">付款记录</a>
+                        </dd>
+                        <dd ui-sref = "index.paymentCenter">
+                            <a href="javascript:;">欠款查询</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" ui-sref = "index.productPlan">
+                    <a href="javascript:;">产品安排</a>
+                </li>
+                <li class="layui-nav-item" ui-sref = "index.newProduct">
+                    <a href="javascript:;">新品推广</a>
+                </li>
+                <!--<li class="layui-nav-item" ui-sref = "index.activityPlan">-->
+                    <!--<a href="javascript:;">活动计划</a>-->
+                <!--</li>-->
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">用户管理</a>
+                    <dl class="layui-nav-child">
+                        <dd ui-sref = "index.userList({type:1})">
+                            <a href="javascript:;">管理员</a>
+                        </dd>
+                        <dd ui-sref = "index.userList({type:2})">
+                            <a href="javascript:;">操作员</a>
+                        </dd>
+                        <dd ui-sref = "index.userList({type:3})">
+                            <a href="javascript:;">普通用户</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">厂家码段</a>
+                    <dl class="layui-nav-child">
+                        <dd ui-sref = "index.factoryList">
+                            <a href="javascript:;">厂家列表</a>
+                        </dd>
+                    </dl>
+                    <dl class="layui-nav-child">
+                        <dd ui-sref = "index.rangeSizeList">
+                            <a href="javascript:;">码段列表</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div ui-view = "main" class="layui-body layui-tab-content">
+        <!-- 内容主体区域 -->
+
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © - 童梦晴天
+    </div>
+</div>

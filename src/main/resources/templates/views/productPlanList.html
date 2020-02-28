@@ -1,0 +1,37 @@
+<div class="demoTable">
+    <fieldset class="layui-elem-field">
+        <legend>产品安排</legend>
+        <div class="layui-field-box">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label ifLabel">货号：</label>
+                    <div class="layui-input-inline ifInput">
+                        <input type="text" name="code" id="code" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label ifLabel">上架日期：</label>
+                    <div class="layui-input-inline ifInput">
+                        <input type="text" name="relTime" id="relTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label ifLabel">预拍日期：</label>
+                    <div class="layui-input-inline ifInput">
+                        <input type="text" name="prePhotoTime" id="prePhotoTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button class="layui-btn reloadBtn" data-type="search">筛选</button>
+                <button class="layui-btn layui-btn-normal reloadBtn" data-type="return">返回</button>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<table class="layui-hide" id="LAY_table_productPlan" lay-filter="productPlan"></table>
+<script type="text/html" id="toolBar">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">&nbsp;修改&nbsp;</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">&nbsp;删除&nbsp;</a>
+</script>
+<div class="content-bottom">
+    <button class="layui-btn" id="addProductPlanBtn">添加安排</button>
+</div>

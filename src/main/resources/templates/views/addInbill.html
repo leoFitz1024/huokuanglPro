@@ -1,0 +1,71 @@
+<fieldset class="layui-elem-field" style="min-height: 800px">
+    <legend>增加进货订单</legend>
+    <div class="layui-container" style="padding: 20px 0 ;margin:40px auto;min-height: 710px;text-align: center;box-shadow:5px 5px 10px #707070;">
+        <div class="layui-field-box">
+            <form class="layui-form" id="inbillAddForm" action="" style="display: inline-block;text-align: -webkit-center;">
+                <div class="layui-form-item" style="width: 600px;text-align: center;">
+                    <div class="layui-inline">
+                        <label class="layui-form-label ifLabel">进货日期：</label>
+                        <div class="layui-input-inline ifInput">
+                            <input type="text" class="layui-input" id="addInbillTime" placeholder="年-月-日">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label ifLabel">厂家：</label>
+                        <div class="layui-input-inline ifInput">
+                            <select name="factoryid" id="addInbillfactoryid">
+                                <option value="" selected="">请选择厂家</option>
+                                <option ng-repeat="factory in factorys" value="{{factory.id}}">{{factory.factoryname}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text" style="width: 580px;text-align: center;">
+                    <label class="layui-form-label">备&#12288&#12288注：</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输备注" id="addInbillRemarks" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item"><label class="layui-form-label">单据条目：</label>
+                    <div class="layui-form-item" ng-repeat="index in dataList"
+                         style="float: left;margin: 5px;padding:10px 5px 5px 5px;border-bottom: 1px solid #e6e6e6">
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;padding-left: 5px;">{{index}}、货号：</label>
+                            <div class="layui-input-inline" style="width: 120px"><input type="text" class="layui-input"
+                                                                                        id="addPurchaseCode{{index}}"
+                                                                                        placeholder="货号"></div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;padding-left: 5px;">码段：</label>
+                            <div class="layui-input-inline" style="width: 150px">
+                                <select name="addPurchaseSize" id="addPurchaseSize{{index}}">
+                                    <option value="" selected="">请选择码段</option>
+                                    <option ng-repeat="size in sizes" value="{{size.rangesize}}">{{size.rangesize}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;padding-left: 5px;">颜色：</label>
+                            <div class="layui-input-inline" style="width: 80px"><input type="text" class="layui-input"
+                                                                                       id="addPurchaseColor{{index}}"
+                                                                                       placeholder="顏色"></div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;padding-left: 5px;">价格：</label>
+                            <div class="layui-input-inline" style="width: 80px"><input type="text" class="layui-input"
+                                                                                       id="addPurchasePrice{{index}}"
+                                                                                       placeholder="价格"></div>
+                        </div>
+                        <div class="layui-inline"><label class="layui-form-label" style="width:auto;padding-left: 5px;">数量：</label>
+                            <div class="layui-input-inline" style="width: 80px"><input type="text" class="layui-input"
+                                                                                       id="addPurchaseNumber{{index}}"
+                                                                                       placeholder="数量"></div>
+                        </div>
+                    </div>
+                    <input id="addInbillItemBtn" type="button"
+                           style="margin:17px 5px 10px 5px;float: left; width:35px; height:35px; border:0; background:url('../img/add.png') no-repeat;background-size:100%;"/>
+                    <input id="delInbillItemBtn" type="button"
+                           style="margin:17px 5px 10px 5px;float: left; width:35px; height:35px; border:0; background:url('../img/del.png') no-repeat;background-size:100%;"/>
+                </div>
+            </form>
+        </div>
+        <button class="layui-btn layui-btn-lg" id="addInbillBtn" style="top: 20px;">添加订单</button>
+    </div>
+</fieldset>
